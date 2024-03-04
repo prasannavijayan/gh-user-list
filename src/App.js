@@ -48,7 +48,7 @@ function App() {
       <CssBaseline />
       <Router>
         <UserProvider>
-          <ContainerWrapper>
+          <ContainerWrapper data-testid="app-container">
             <Grid container justifyContent="center">
               <Grid item xs={12} md={8}>
                 <Paper>

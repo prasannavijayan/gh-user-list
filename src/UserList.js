@@ -23,21 +23,21 @@ function UserList() {
         />
       </Grid>
       <Grid item xs={12}>
+        {loading && (
+          <List data-testid="loading-skeleton">
+            {[...Array(10)].map((_, index) => (
+              <ListItem key={index}>
+                <ListItemAvatar>
+                  <Skeleton variant="circular" width={40} height={40} />
+                </ListItemAvatar>
+                <ListItemText>
+                  <Skeleton variant="text" width="70%" />
+                </ListItemText>
+              </ListItem>
+            ))}
+          </List>
+        )}
         <List>
-          {loading && (
-            <>
-              {[...Array(10)].map((_, index) => (
-                <ListItem key={index}>
-                  <ListItemAvatar>
-                    <Skeleton variant="circular" width={40} height={40} />
-                  </ListItemAvatar>
-                  <ListItemText>
-                    <Skeleton variant="text" width="70%" />
-                  </ListItemText>
-                </ListItem>
-              ))}
-            </>
-          )}
           {!loading && users.map((user) => (
             <ListItem
               key={user.id}
